@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PixelController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		#grid-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<p class="text-xl">Cette page est controllée par :
+			{{ controller_name }}! ✅</p>
+	</div>
+
+	<div>
+		<h3>Stimulus Pixel Controller</h3>
+		<p>Open the browser console to see the controller in action.</p>
+	</div>
+
+	<div id="grid-container">
+		<div>
+			<h3>Pixel Art Grid</h3>
+			<div id="pixel-grid">
+				{% include 'components/GridPixel.html.twig' %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

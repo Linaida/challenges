@@ -1,6 +1,20 @@
 
 services:
 ###> doctrine/doctrine-bundle ###
+  php:
+    image: linaida/symfony-runner
+    container_name: challenges_app
+    ports:
+      - "8005:80"  # http://localhost:8005
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: dev
+      XDEBUG_MODE: debug
+      XDEBUG_CLIENT_HOST: host.docker.internal
+      XDEBUG_CLIENT_PORT: 9003
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   database:
     image: postgres:${POSTGRES_VERSION:-16}-alpine
     environment:

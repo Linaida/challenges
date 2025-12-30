@@ -1,0 +1,39 @@
+<style>
+	.pixel-cell {
+		width: 40px;
+		height: 40px;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		display: inline-block;
+		background-color: 'white';
+	}
+
+	.color-swatch {
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		border: 1px solid #000;
+		cursor: pointer;        
+	}
+    .color-active {
+        border: 6px solid #aabb11;
+    }
+
+    #palette {
+        width: 250px;
+    }
+
+</style>
+<div data-controller="pixel" class="flex flex-row">
+	<div id="palette" data-pixel-target="palette" class="flex flex-col justify-center"></div>
+	<div id="pixel-grid" class="flex"  data-pixel-target="grid">
+		{% for row in 0..15 %}
+			<div class="pixel-row">
+				{% for col in 0..15 %}
+					<div class="pixel-cell" data-row="{{ row }}" data-col="{{ col }}" data-action="click->pixel#drawColor"></div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+
+	</div>
+</div>
